@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<title>Integrated Academic Calendar | Login Page</title>
+<link rel="icon" href="/static/imgs/collegeIconBlack.png" type="image/icon">
+</head>
+<style>
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+header .header{
+  background-color: #fff;
+  height: 45px;
+}
+header a img{
+  width: 134px;
+margin-top: 4px;
+}
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+.login-page .form .login{
+  margin-top: -31px;
+margin-bottom: 26px;
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  border-radius: 23px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border-radius: 12px;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+    text-transform: uppercase;
+    background-color: #1d4b45;
+    border-radius: 14px;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: black;
+    font-size: 14px;
+    cursor: pointer;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: black;
+  font-size: 16px;
+}
+.form .message a {
+    font-size: 17px;
+    color: #1d4b45;
+    text-decoration: underline;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+body {
+  background-color: #1d4b45;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+</style>
+<body>
+  <body>
+    <div class="login-page">
+      <div class="form">
+        <div class="login">
+          <div class="login-header">
+            <h2 style="padding-top: 20px; font-size: 40px; font-weight: bolder; font-family: sans-serif;">LOGIN</h2>
+            <br>
+          </div>
+        </div>
+        <form class="login-form" method="POST">
+          {% csrf_token %}
+          <input type="text" name="myEmail" placeholder="Enter your email"/>
+          <input type="password" name="myPwd" placeholder="Enter your password"/>
+          <br>
+          <br>
+          <button style="color: aliceblue;" type="submit">login</button>
+          <p class="message">Not registered? <a href="http://127.0.0.1:8000/signUp">Create an account</a></p>
+        </form>
+        {% for message in messages %}
+    
+          <div class="alert alert-success">
+            <a class="close" data-dismiss="alert">×</a>
+              {{ message }}
+          </div>
+
+        {% endfor %}
+      </div>
+    </div>
+</body>
+</body>
+</html>

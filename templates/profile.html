@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <h1>Welcome to your profile, {{ user_email }}</h1>
+  <h1>Welcome to your profile, {{ user.u_email }}</h1>
+  <p>Your user ID is: {{ user.u_id }}</p>
+{% endblock %}

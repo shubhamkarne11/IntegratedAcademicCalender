@@ -1,0 +1,104 @@
+{% extends 'university.html'%}
+{% block UniName %}University of Hyderabad{% endblock UniName %}   
+{% block tableBody %}
+<div class = "container" style="margin:50px 225px">
+    <div id="UOH">
+    <table border="5px" cellpadding="18px" cellspacing="6px" align="center" bordercolor="black" style="margin: 50px auto;background-color: #daf192d6;">
+         <tr style="page-break-inside: avoid;">
+            <th style="wordWrap: break-word;page-break-inside: avoid;">SR. NO.</th>
+            <th style="wordWrap: break-word;page-break-inside: avoid;">DATE</th>
+            <th style="wordWrap: break-word;page-break-inside: avoid;">ACTIVITY</th>
+        </tr>
+        <tr style="page-break-inside: avoid;">
+            <td style="wordWrap: break-word;page-break-inside: avoid;">1</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">02 Jan, 2023 to 07 Jan 2023</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">Winter Semester</td>
+        </tr>
+        <tr style="page-break-inside: avoid;">
+            <td style="wordWrap: break-word;page-break-inside: avoid;">2</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">03 Jan 2023 to 07 Jan 2023</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">Supplementary/improvement examinations of  I/III/V/VII/IX <br> semesters  </td>
+        </tr>
+        <tr style="page-break-inside: avoid;">
+            <td style="wordWrap: break-word;page-break-inside: avoid;">3</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">10 Jan 2023</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">Results to be sent by the Schools/Departments/Centres </td>
+        </tr>
+        <tr style="page-break-inside: avoid;">
+            <td style="wordWrap: break-word;page-break-inside: avoid;">4</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">02 Jan 2023 to 10 May 2023</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">Commencement of  classes for  II/IV/VI/VIII/X semesters </td>
+        </tr>
+        <tr style="page-break-inside: avoid;">
+            <td style="wordWrap: break-word;page-break-inside: avoid;">5</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">11 May 2023 to 22 May 2023</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">Semester examinations</td>
+        </tr>
+        <tr style="page-break-inside: avoid;">
+            <td style="wordWrap: break-word;page-break-inside: avoid;">6</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">23 May 2023 to 26 May 2023</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">Evaluation</td>
+        </tr>
+        <tr style="page-break-inside: avoid;">
+            <td style="wordWrap: break-word;page-break-inside: avoid;">7</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">26 May 2023</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">Results to be sent by the Schools/Departments/Centres </td>
+        </tr>
+        <tr style="page-break-inside: avoid;">
+            <td style="wordWrap: break-word;page-break-inside: avoid;">8</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">26 May 2023</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;"> Display of the list of students who failed  by Deans/Heads in respective Schools/Departments/ Centres </td>
+        </tr>
+        <tr style="page-break-inside: avoid;">
+            <td style="wordWrap: break-word;page-break-inside: avoid;">9</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">05 Jun 2023</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">Notification  of results</td>
+        </tr>
+        <tr style="page-break-inside: avoid;">
+            <td style="wordWrap: break-word;page-break-inside: avoid;">10</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">23 May 2023 to 11 Jul 2023</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">Summer Vacation</td>
+        </tr>
+        <tr style="page-break-inside: avoid;">
+            <td style="wordWrap: break-word;page-break-inside: avoid;">11</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">12 Jul 2023</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">Reopening after summer vacation for students </td>
+        </tr>
+        <tr style="page-break-inside: avoid;">
+            <td style="wordWrap: break-word;page-break-inside: avoid;">12</td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">Between 20th to  31st August, 2022 for Monsoon <br>semester  &  1st to 10th January, 2023 for Winter semester </td>
+            <td style="wordWrap: break-word;page-break-inside: avoid;">School Board Meetings</td>
+        </tr>
+    </table>
+</div>
+    <br><br><br>
+
+    <button 
+    onclick="downloadPDF(event, 'UOH')"
+    style="color:solid-black;padding: 5px 62px 5px 70px;
+    font-size: 16px;
+    background-color: aliceblue;
+    border: 1px solid #0000;
+    cursor: pointer;
+    font-size: 20px;
+    margin: auto 39%;
+    margin-bottom: 8%;" class="download_btn"><img src="/static/downloadIcon.png" style="border-radius: 30%; margin-right:20px;"></img><strong>Download</strong></button>
+    <br>
+    {% endblock tableBody %}
+    {% block collegeContact %}
+    <div style="    display: flex;
+    width: 100vw;
+    background-color: #2a2e45;
+    position: relative;
+    padding-top:45px;">
+    <div style="width:21%;   margin-top:75px; margin-left:111px">
+        <address>
+        <p style="color:navajowhite;"><strong>Phone Number:- </strong><br>040-2313 2444</p><br><br>
+        <a href= "mailto:acadinfo@uohyd.ernet.in"><p style="color:navajowhite;"><strong>Email:- </strong>acadinfo@uohyd.ernet.in</p><br><br></a>
+        <a href ="http://acad.uohyd.ac.in/couInt.html"><strong style="color:navajowhite;"><i>Click for the syllabus<i></strong></a>
+        </address>
+    </div>  
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.062089102038!2d78.32419354941963!3d17.45674210533961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb930582182d4b%3A0x694f8154c8cc343!2sUniversity%20of%20Hyderabad!5e0!3m2!1sen!2sin!4v1677645433687!5m2!1sen!2sin" width="600" height="450" style="border: 2px solid black; margin: auto 21%; display: block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <br><br>
+</div>
+{% endblock collegeContact %}

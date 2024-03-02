@@ -1,0 +1,101 @@
+{% extends 'university.html' %}
+{% block head %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+{% endblock head%}
+{% block tableBody %}
+  <div style="text-align: center;">
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="date" name="date-input" id="date-input" style="margin-top:100px; margin-bottom: 15px;">
+      <button onclick="filterByDate(event)" style="background-color: aliceblue;">Filter</button>
+      <button onclick="generatePDF(event)" style="background-color: aliceblue;">Download PDF</button>
+    </form>
+    <table style="border-collapse: collapse; margin-left:auto; margin-right:auto;background-color: #daf192d6;" id="final-table">
+      <thead>
+        <tr>
+          <th style="border: 1px solid black; padding: 8px; width: 100px; text-align: center;">Date</th>
+          <th style="border: 1px solid black; padding: 8px; width: 100px; text-align: center;">End-Date</th>
+          <th style="border: 1px solid black; padding: 8px; width: 200px; text-align: center;">University</th>
+          <th style="border: 1px solid black; padding: 8px; width: 150px;">University Activity</th>
+        </tr>
+      </thead>
+      <tbody id="filtered-data" style="text-align:center;">
+      </tbody>
+    </table>
+    <script>
+      function filterByDate(event) {
+        event.preventDefault();
+        const inputElement = document.getElementById('date-input');
+        const inputValue = inputElement.value;
+        fetch('/filter-by-date/' + inputValue)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+              const filteredDataElement = document.getElementById('filtered-data');
+              filteredDataElement.innerHTML = '';
+              if (!data.length) {
+                const nullRow = document.createElement('tr');
+                const nullCell = document.createElement('td');
+                nullCell.setAttribute('colspan', 4); // span across all columns
+                nullCell.innerText = data.message;
+                nullCell.style.border = "1px solid black";
+                nullCell.style.whiteSpace = "nowrap";
+                nullCell.style.textAlign = "center";
+                nullRow.appendChild(nullCell);
+                filteredDataElement.appendChild(nullRow);
+              }
+              else{
+                for (const obj of data) {
+                const row = document.createElement('tr');
+                const dateCell = document.createElement('td');
+                const endDateCell = document.createElement('td');
+                const uniNameCell = document.createElement('td');
+                const uniActCell = document.createElement('td');
+                dateCell.innerText = obj.date;
+                endDateCell.innerText = obj.end_date;
+                uniNameCell.innerText = obj.university_name;
+                uniActCell.innerText = obj.university_activity;
+                dateCell.style.border = "1px solid black";
+                endDateCell.style.border = "1px solid black";
+                uniNameCell.style.border = "1px solid black";
+                uniActCell.style.border = "1px solid black";
+                dateCell.style.padding = "5px";
+                endDateCell.style.padding = "5px";
+                uniNameCell.style.padding = "10px";
+                uniNameCell.style.width = "250px";
+                uniNameCell.style.wordWrap = "break-word";
+                uniActCell.style.padding = "5px";
+                row.style.pageBreakInside="avoid";
+                row.appendChild(dateCell);
+                row.appendChild(endDateCell);
+                row.appendChild(uniNameCell);
+                row.appendChild(uniActCell);
+                filteredDataElement.appendChild(row);
+              }}
+               
+                
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+      }
+      
+      function generatePDF(event) {
+        event.preventDefault()
+        const element = document.getElementById('final-table');
+        const opt = {
+          margin: 1,
+          filename: 'calendar.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+        };
+        html2pdf().from(element).set(opt).save();
+      }
+    </script>
+  </div>
+{% endblock tableBody %}
