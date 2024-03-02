@@ -30,6 +30,7 @@ SECRET_KEY = 'django-insecure-75^6rwv&ot3a82i73ezjade)k6kz^hedox1wzltu)(^g@a4qzu
 DEBUG = True
 
 ALLOWED_HOSTS = ["192.168.0.164", "127.0.0.1"]
+ALLOWED_HOSTS = ['.vercel.app']
 
 
 # LOGIN_URL = 'http://127.0.0.1:8000/login/login/'
